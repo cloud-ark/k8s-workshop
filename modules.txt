@@ -1,0 +1,48 @@
+CloudARK Kubernetes Workshop:
+-----------------------------
+
+Basic: 
+------
+Module 1: Containers
+- container-basics 
+
+Module 2: Kubernetes cluster basic discovery
+- cluster-installation-and-discovery
+
+Module 3: Deploying your first application (stateless app)
+- hello-world-deployment
+
+Module 4: Deploying a stateful application
+- wordpress-deployment
+
+
+Advanced:
+---------
+Module 5: Kubernetes RBAC
+- rbac
+
+Module 6: Kubernetes Operators and CRDs
+- wordpress-mysqlcluster 
+
+Module 7: Helm charts
+- wordpress-deployment-chart
+
+Module 8: Cloud Native SaaS and Managed Services on K8s
+- wordpress-mysqlcluster-chart
+
+Module 9: Autoscaling
+- hpa 
+- cluster-scaling 
+
+
+Expert:
+-------
+Module 10: Kubernetes audits
+Module 11: Node capabilities (NUMA, huge pages, etc.)
+Module 12: Service Meshes (istio)
+Module 13: Cluster management (HA, etcd, etc.)
+Module 14: Kubernetes code deep dive
+Module 15: Building operators
+Module 16: Building kubectl plugins
+Module 17: Contributing to Kubernetes
+

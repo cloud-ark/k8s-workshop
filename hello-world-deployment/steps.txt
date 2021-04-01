@@ -1,0 +1,13 @@
+Run the application on Minikube Cluster
+--------------------------------------------
+- eval $(minikube docker-env)
+- kubectl create -f hello-world-deployment.yaml
+- kubectl get deployments
+- kubectl get pods
+- kubectl get services
+- Access the application through its service
+  - minikube service hello-world-service
+- Check the relationships
+  - kubectl connections Service hello-world-service default -o png --ignore=ServiceAccount:default,Namespace:default
+  - Check hello-world-service.png
+

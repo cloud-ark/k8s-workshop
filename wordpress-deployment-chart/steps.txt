@@ -1,0 +1,14 @@
+1. Install Helm v3
+
+2. Check the helm chart
+   - check templates folder and the Kubernetes manifests therein
+   - check values.yaml
+
+3. Helm install
+   - helm install wp-stack ./wp-chart --set resourceName=abc
+
+4. Helm package
+   - helm package ./wp-chart
+     - This will create the tgz of the Helm chart
+
+

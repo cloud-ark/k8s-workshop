@@ -1,0 +1,11 @@
+1. kubectl apply -f mysql-deployment.yaml
+2. kubectl get pods
+   -> Wait till wordpress-mysql Pods are running
+4. Check Pod status
+   - kubectl describe pods
+5. kubectl apply -f wordpress-deployment.yaml
+6. Check Pod status
+   - kubectl get pods
+7. Open Wordpress
+   - minikube service wordpress
+8. kubectl connections Service wordpress default -o png --ignore=ServiceAccount:default,Namespace:default

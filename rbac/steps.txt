@@ -1,0 +1,42 @@
+1. Check the current user context
+   - kubectl config get-contexts
+   - kubectl config current-context
+
+2. Check the current permissions
+   - kubectl auth can-i --list
+
+3. Create a restrictive user context using a service account token
+   - kubectl create serviceaccount testsa
+   - TOKENNAME=`kubectl get serviceaccount testsa -o jsonpath='{.secrets[0].name}'`
+   - echo $TOKENNAME
+   - TOKEN=`kubectl get secret $TOKENNAME -o jsonpath='{.data.token}'| base64 --decode`
+   - echo $TOKEN
+   - kubectl config set-credentials testsa --token=$TOKEN
+   - kubectl config set-context --current --user=testsa
+   - kubectl config get-contexts (check AUTHINFO)
+   - kubectl auth can-i --list
+   - kubectl get pods
+   - kubectl get deployments
+   - kubectl get namespaces
+
+4. Grant permissions to the ServiceAccount token
+   - kubectl config set-context --current --user=minikube
+   - kubectl api-resources --namespaced=true
+   - kubectl api-resources --namespaced=false
+   - more testsa-rbac.yaml
+   - kubectl apply -f testsa-rbac.yaml
+   - kubectl config set-context --current --user=testsa
+   - kubectl auth can-i --list
+   - kubectl get pods
+   - kubectl get deployments
+   - kubectl get namespaces
+   - kubectl get persistentvolumes (this should fail)
+
+5. Reset the user context back to minikube user
+   - kubectl config set-context --current --user=minikube
+   - kubectl auth can-i --list
+   - kubectl get pods
+   - kubectl get deployments
+   - kubectl get namespaces
+
+

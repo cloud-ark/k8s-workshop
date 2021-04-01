@@ -1,0 +1,23 @@
+Build and run Application as Docker container on Minikube VM
+-------------------------------------------------------------
+Start Minikube:
+- MacOS:
+  - ./minikube-darwin-amd64 start
+- Linux:
+  - ./minikube-linux-amd64 start
+
+Connect local docker cli with Minikube Docker Daemon:
+- eval $(minikube docker-env)
+
+Build Docker container
+- docker build -t hello-world-ubuntu .
+
+Run Docker container
+- docker run --publish-all=true -d hello-world-ubuntu
+
+Access application
+- docker ps (note down the port that is mapped to port 5000 for the hello-world-ubuntu container)
+- minikube ip
+- curl <minikube-ip>:<port mapped to 5000>
+  - curl 192.168.99.101:32768
+

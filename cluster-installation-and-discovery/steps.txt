@@ -1,0 +1,30 @@
+1. Start Minikube cluster (if not running):
+   - MacOS:
+     - ./minikube-darwin-amd64 start
+   - Linux:
+    - ./minikube-linux-amd64 start
+
+2. Once Minikube cluster is ready, verify:
+   - kubectl get nodes
+
+3. Check Namespaces:
+   - kubectl get namespaces
+
+4. Check the kube-system namespace:
+   - kubectl get pods -n kube-system
+
+6. Check all the available resources:
+   - kubectl api-resources
+
+5. Discover your cluster using kubectl connections plugin:
+   - Check usage: 
+     - kubectl connections
+   - Find out how resources are related to the etcd pod
+     - kubectl connections Pod etcd-minikube kube-system -o png
+       - check etcd-connections.png
+   - Find which K8s resources are running in kube-system namespace 
+     and how are they related to one another:
+     - Textual output:
+       - kubectl connections Namespace kube-system kube-system 
+     - Graphical output:
+       - kubectl connections Namespace kube-system kube-system -o png
