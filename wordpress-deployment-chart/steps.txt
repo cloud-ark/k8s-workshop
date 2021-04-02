@@ -1,13 +1,51 @@
-1. Install Helm v3
+1. ~/Downloads/minikube-darwin-amd64 delete
 
-2. Check the helm chart
+2. ~/Downloads/minikube-darwin-amd64 start --memory=6g
+
+3. Install Helm v3
+
+4. Check the helm chart
    - check templates folder and the Kubernetes manifests therein
    - check values.yaml
 
-3. Helm install
-   - helm install wp-stack ./wp-chart --set resourceName=abc
+5. Helm install on Minikube
+   - helm install wp-stack ./wp-chart --set resourceName=wp1
+   - kubectl get pods
+   - kubectl get svc
+   - minikube service wp1
+   - Access Mysql
+     - minikube_ip=<minikube ip>
+     - kubectl get svc -> note down the wordpress-mysql service port that is mapped to 3306
+     - mysql --host=$minikube_ip --port=$wordpress-mysql-port --user=root --password=root123
+   
+   - helm install wp-stack1 ./wp-chart --set resourceName=wp2 (what happens?)
 
-4. Helm package
+6. Helm install on GKE
+   - Create GKE cluster
+     - Run ../helpers/create-gke-cluster.sh
+   - Enable NodePort Services on the cluster
+     - Check ../helpers/gke-cheat-sheet.md
+   - Connect to GKE Cluster
+     - gcloud container clusters get-credentials cluster-1 --zone us-central1-b --project <your-project-name>
+   - helm install wp-stack ./wp-chart --set resourceName=wp1
+   - kubectl get pods
+   - kubectl get svc
+   - Access Wordpress
+     - node_ip=`kubectl describe node | grep -i external | awk '{print $2}'`
+     - wordpress_port = Port that is mapped to wordpress service (kubectl get svc)
+     - Point browser to: <node_ip>:<wordpress_port>
+   - Access Mysql
+     - mysql_port = Port that is mapped to mysql service (kubectl get svc)
+     - mysql --host=$node_ip --port=$mysql-port --user=root --password=root123
+
+7. Switch your kubectl between Minikube and your GKE cluster:
+   - kubectl config use-context minikube (to point to minikube)
+   - gcloud container clusters get-credentials cluster-1 --zone us-central1-b --project <your-project-name> (to point to your GKE cluster)
+
+8. Helm delete
+   - helm delete wp-stack
+
+9. Helm package
    - helm package ./wp-chart
      - This will create the tgz of the Helm chart
 

@@ -10,7 +10,7 @@ spec:
   selector:
     app: wordpress
     tier: mysql
-  type: ClusterIP
+  type: NodePort 
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

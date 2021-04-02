@@ -10,4 +10,6 @@ Run the application on Minikube Cluster
 - Check the relationships
   - kubectl connections Service hello-world-service default -o png --ignore=ServiceAccount:default,Namespace:default
   - Check hello-world-service.png
+- Cleanup
+  - kubectl delete -f hello-world-deployment.yaml
 

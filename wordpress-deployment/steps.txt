@@ -9,3 +9,11 @@
 7. Open Wordpress
    - minikube service wordpress
 8. kubectl connections Service wordpress default -o png --ignore=ServiceAccount:default,Namespace:default
+9. Debug
+   - kubectl logs <wordpress-pod>
+   - kubectl logs <mysql-pod>
+   - kubectl describe pods <wordpress-pod>
+   - kubectl describe pods <mysql-pod>
+10. Cleanup
+   - kubectl delete -f wordpress-deployment.yaml
+   - kubectl delete -f mysql-deployment.yaml
