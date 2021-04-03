@@ -45,7 +45,6 @@ spec:
         app: wordpress
         tier: frontend
     spec:
-      restartPolicy: Never
       containers:
       - image: wordpress:4.8-apache
         name: wordpress
