@@ -22,7 +22,10 @@ Install following tools on your machine:
 5. Helm (version3)
    - https://helm.sh/docs/intro/install/
 
-6. KubePlus kubectl plugins for cluster discovery (only available for MacOS and Linux)
+6. Google Cloud CLI
+   - gcloud 
+
+7. KubePlus kubectl plugins for cluster discovery (only available for MacOS and Linux)
    (available at: https://github.com/cloud-ark/kubeplus). 
    - wget https://github.com/cloud-ark/kubeplus/raw/master/kubeplus-kubectl-plugins.tar.gz
    - gunzip kubeplus-kubectl-plugins.tar.gz
