@@ -49,4 +49,13 @@
    - helm package ./wp-chart
      - This will create the tgz of the Helm chart
 
+10. Check connections
+    - You can use KubePlus kubectl connections plugin to check if your Helm release resources are correctly isolated from other Helm release resources.
+    - Say you have deployed a Helm chart with name wp1 and say your Helm chart is properly templatized to create a Service resource that exposes the
+      Wordpress Pod, and say its name is 'wordpress-wp1'. Then you can use following kubectl connections command to check the resource connectivity.
+    
+    - kubectl connections Service wordpress-wp1 default -o png --ignore=ServiceAccount:default,Namespace:default
+    
+    - See wp1.png and wp2.png to see the resource topology of the two Wordpress stacks. 
+
 
