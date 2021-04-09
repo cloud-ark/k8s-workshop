@@ -31,6 +31,8 @@
    - kubectl get pods
    - kubectl get svc
    - Access Wordpress
+     - Open firewall rule to allow traffic from 0.0.0.0/0
+       -> check helpers/gke-cheat-sheet.md
      - node_ip=`kubectl describe node | grep -i external | awk '{print $2}'`
      - wordpress_port = Port that is mapped to wordpress service (kubectl get svc)
      - Point browser to: <node_ip>:<wordpress_port>
