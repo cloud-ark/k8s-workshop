@@ -27,6 +27,7 @@ Install following tools on your machine:
 
 7. KubePlus kubectl plugins for cluster discovery (only available for MacOS and Linux)
    (available at: https://github.com/cloud-ark/kubeplus). 
+   ```
    - wget https://github.com/cloud-ark/kubeplus/raw/master/kubeplus-kubectl-plugins.tar.gz
    - gunzip kubeplus-kubectl-plugins.tar.gz
    - tar -xvf kubeplus-kubectl-plugins.tar
@@ -34,4 +35,5 @@ Install following tools on your machine:
    - export PATH=$KUBEPLUS_HOME/plugins/:$PATH
    - Verify: kubectl kubeplus commands
      - You should see list of all the available plugin commands
+   ```
 
