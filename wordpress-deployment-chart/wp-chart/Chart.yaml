@@ -2,4 +2,4 @@ apiVersion: v2
 appVersion: "1.0"
 description: Wordpress deployment Helm chart for Kubernetes
 name: wordpress-chart
-version: 0.0.1
+version: 0.0.3
