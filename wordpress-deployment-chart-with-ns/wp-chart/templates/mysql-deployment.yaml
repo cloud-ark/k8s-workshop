@@ -19,7 +19,6 @@ metadata:
   labels:
     app: wordpress
 spec:
-  storageClassName: fast
   accessModes:
     - ReadWriteOnce
   resources:
