@@ -15,7 +15,7 @@ spec:
       containers:
       - name: hello-world 
         image: hello-world-ubuntu:latest
-        imagePullPolicy: Never # Only for Minikube; Otherwise set to Always
+        imagePullPolicy: IfNotPresent 
         ports:
         - containerPort: 5000
 ---

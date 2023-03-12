@@ -1,5 +1,6 @@
 Run the application on Minikube Cluster
 --------------------------------------------
+- Make sure the hello-world container has been built with the Minikube option (see container-basics module)
 - eval $(minikube docker-env)
 - kubectl create -f hello-world-deployment.yaml
 - kubectl get deployments
@@ -7,9 +8,6 @@ Run the application on Minikube Cluster
 - kubectl get services
 - Access the application through its service
   - minikube service hello-world-service
-- Check the relationships
-  - kubectl connections Service hello-world-service default -o png --ignore=ServiceAccount:default,Namespace:default
-  - Check hello-world-service.png
 - Cleanup
   - kubectl delete -f hello-world-deployment.yaml
 

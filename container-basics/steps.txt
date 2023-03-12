@@ -1,13 +1,10 @@
-Build and run Application as Docker container on Minikube VM
--------------------------------------------------------------
-Start Minikube:
-- MacOS:
-  - ./minikube-darwin-amd64 start
-- Linux:
-  - ./minikube-linux-amd64 start
+Build and run Application as Docker container 
+---------------------------------------------
 
-Connect local docker cli with Minikube Docker Daemon:
-- eval $(minikube docker-env)
+Directly on your machine
+------------------------
+
+Install Docker
 
 Build Docker container
 - docker build -t hello-world-ubuntu .
@@ -17,7 +14,37 @@ Run Docker container
 
 Access application
 - docker ps (note down the port that is mapped to port 5000 for the hello-world-ubuntu container)
+- curl http://localhost:<port mapped to 5000>
+
+Cleanup
+- docker stop <containerid>
+- docker rm <containerid>
+
+
+With Minikube
+---------------
+
+Install Docker
+
+Install Minikube
+
+Start Minikube:
+- MacOS:
+  - ./minikube-darwin-amd64 start
+- Linux:
+  - ./minikube-linux-amd64 start
+
+Connect local docker cli with Minikube Docker Daemon:
+- eval $(minikube docker-env)
+
+Build Docker container (see above)
+
+Run Docker container (see above)
+
+Access application
 - minikube ip
+- docker ps (note down the port that is mapped to port 5000 for the hello-world-ubuntu container)
 - curl <minikube-ip>:<port mapped to 5000>
   - curl 192.168.99.101:32768
 
+Cleanup (see above)
