@@ -46,13 +46,17 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: wordpress:4.8-apache
+      - image: arm64v8/wordpress
         name: wordpress
         env:
         - name: WORDPRESS_DB_HOST
           value: wordpress-mysql
+        - name: WORDPRESS_DB_USER
+          value: root
         - name: WORDPRESS_DB_PASSWORD
           value: root123
+        - name: WORDPRESS_DEBUG
+          value: "true"
         ports:
         - containerPort: 80
           name: wordpress
